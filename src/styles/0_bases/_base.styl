@@ -1,5 +1,209 @@
+
+//path
+$basepath ?= '../../node_modules/bootstrap-4-stylus/'
+// colors
+$white ?= #fff
+$gray-100 ?= #f8f9fa
+$gray-200 ?= #e9ecef
+$gray-300 ?= #dee2e6
+$gray-400 ?= #ced4da
+$gray-500 ?= #adb5bd
+$gray-600 ?= #868e96
+$gray-700 ?= #495057
+$gray-800 ?= #343a40
+$gray-900 ?= #212529
+$black ?= #000
+
+$primary ?= #007bff
+$primaryHov ?= #0062cc
+$primaryBtnHov ?= #0069d9
+$secondary ?= $gray-600
+$secondaryHov ?= #6c757d
+$secondaryBtnHov ?= #727b84
+$success ?= #28a745
+$successHov ?= #1e7e34
+$successBtnHov ?= #218838
+$info ?= #17a2b8
+$infoHov ?= #117a8b
+$infoBtnHov ?= #138496
+$warning ?= #ffc107
+$warningHov ?= #d39e00
+$warningBtnHov ?= #e0a800
+$danger ?= #dc3545
+$dangerHov ?= #bd2130
+$dangerBtnHov ?= #c82333
+$light ?= $gray-100
+$lightHov ?= #dae0e5
+$lightBtnHov ?= #e2e6ea
+$dark ?= $gray-800
+$darkHov ?= #1d2124
+$darkBtnHov ?= #23272b
+
+$bodyColor ?= $white
+$bodyBackground ?= $white
+
+//col includes
+$col-include ?= true
+$col-sm-include ?= true
+$col-md-include ?= true
+$col-lg-include ?= true
+$col-xl-include ?= true
+
+//flex includes
+$flex-include ?= true
+$flex-sm-include ?= true
+$flex-md-include ?= true
+$flex-lg-include ?= true
+$flex-xl-include ?= true
+
+//grid breakpoints
+$grid-sm ?= 576px
+$grid-md ?= 768px
+$grid-lg ?= 992px
+$grid-xl ?= 1200px
+
+//container includes
+$container-sm-include ?= true
+$container-md-include ?= true
+$container-lg-include ?= true
+$container-xl-include ?= true
+
+//container-max-size
+$container-sm ?= 540px
+$container-md ?= 720px
+$container-lg ?= 960px
+$container-xl ?= 1140px
+
+
+$line-height-lg ?= 1.5
+$line-height-sm ?= 1.5
+
+$border-width ?= 1px
+$border-color ?= $gray-200
+
+$border-radius ?= .25rem
+$border-radius-lg ?= .3rem
+$border-radius-sm ?= .2rem
+
+//fonts
+$font-size-base ?= 1rem
+$font-size-lg ?= 1.25rem
+$font-size-sm ?= .875rem
+
+$font-weight-light ?= 300
+$font-weight-normal ?= normal
+$font-weight-bold ?= bold
+
+$font-family-base ?= -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
+$font-family-monospace ?=  "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+
+
+$h1-font-size ?= 2.5rem
+$h2-font-size ?= 2rem
+$h3-font-size ?= 1.75rem
+$h4-font-size ?= 1.5rem
+$h5-font-size ?= 1.25rem
+$h6-font-size ?= $font-size-base
+
+
+$headings-margin-bottom  ?= .5rem
+$headings-font-family ?= inherit
+$headings-font-weight ?= 500
+$headings-line-height  ?= 1.1
+$headings-color ?= inherit
+
+//display
+$display1-size ?= 6rem
+$display2-size ?= 5.5rem
+$display3-size ?= 4.5rem
+$display4-size ?= 3.5rem
+
+$display1-weight ?= $font-weight-light
+$display2-weight ?= $font-weight-light
+$display3-weight ?= $font-weight-light
+$display4-weight ?= $font-weight-light
+
+$display-line-height ?= $headings-line-height
+
+// This variable affects the `.h-*` and `.w-*` classes.
+$size-25 ?= 25%,
+$size-50 ?= 50%,
+$size-75 ?= 75%,
+$size-100 ?= 100%
+
+
+$small-font-size ?= 80%
+
+$lead-font-size ?= $h5-font-size
+$lead-font-weight ?= $font-weight-light
+
+$hr-border-color ?= rgba($black,.1)
+$hr-border-width ?= $border-width
+
+$blockquote-font-size ?= ($font-size-base * 1.5)
+
+$text-muted ?= $gray-600
+
+$null ?= 0
+
+//helper-sizes
+$helper-size-0 ?= $null
+$helper-size-1 ?= .25rem
+$helper-size-2 ?= .5rem
+$helper-size-3 ?= 1rem
+$helper-size-4 ?= 1.5rem
+$helper-size-5 ?= 3rem
+
+//text-transforms
+$textTransform ?= lowercase uppercase capitalize
+$text-transform-include ?= true
+
+//directions
+$directions ?= left right center
+$floatDirections ?= left right none
+
+//text-direction-sub-includes
+$text-directions-base-include ?= true
+$text-directions-sm-include ?= true
+$text-directions-md-include ?= true
+$text-directions-lg-include ?= true
+$text-directions-xl-include ?= true
+
+//text-type-sub-includes
+$text-primary-include ?= true
+$text-secondary-include ?= true
+$text-success-include ?= true
+$text-info-include ?= true
+$text-warning-include ?= true
+$text-danger-include ?= true
+$text-light-include ?= true
+$text-dark-include ?= true
+
+//float-sub-includes
+$float-base-include ?= true
+$float-sm-include ?= true
+$float-md-include ?= true
+$float-lg-include ?= true
+$float-xl-include ?= true
+
+
+//text-sub-includes
+
+@import pathjoin($basepath, 'includes')
+
+for key,val in includes
+  if val is true
+    @import  pathjoin($basepath, 'includes', key)
+
+for key,val in helpers
+  if val is true
+    @import  pathjoin($basepath ,'includes/helpers', key)
+
+html
+  height 100%
 body
-  color c_gray9
+  height 100%
+  color $gray-900
   font-family 'Noto Sans Japanese', '游ゴシック体', YuGothic, 'Yu Gothic M', '游ゴシック Medium', 'Yu Gothic Medium', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif
   font-size 1em
   line-height 1.8
@@ -9,122 +213,22 @@ img
 svg
   display block
   max-width 100%
-  height 100%
-#svgDefs
-  display none
+  height auto
 li
 dd
   img
     vertical-align bottom
 h1
-  font-size 2rem
+h2
+h3
+h4
+h5
+h6
+  margin-bottom 1.5rem
 a
   &:hover
-    opacity .75
-section
-  margin-bottom 2rem
-ul
-ol
-  padding-left 1.5em
+    opacity .7
 
-table
-  border 1px solid c_gray2
-  margin-bottom 1rem
-thead
-  background-color c_gray9
-  th
-  td
-    padding .5em
-    border 1px solid c_gray2
-    color c_white
-    text-align center
-tbody
-  tr
-    &:nth-of-type(even)
-      background-color c_gray1
-  th
-  td
-    padding .5em
-    border 1px solid c_gray2
-pre
-  display block
-  padding 1rem
-  background-color c_gray1
-code
-  padding 0 .25em
-  background-color c_gray1
-  margin-bottom 1px
-q
-  padding .25em
-  background-color c_gray1
-  &:before
-    content '"'
-  &:after
-    content '"'
-blockquote
-  padding 3em 1em
-  background-color c_gray1
-  position relative
-  &:before
-    quote()
-    top 1em
-    left 1em
-  &:after
-    right 1em
-    bottom 1em
-    quote()
-    transform rotate(180deg)
-  & > *:nth-last-of-type(1)
-    margin-bottom 0
-  cite
-    display block
-    width calc(100% - 30px)
-    position absolute
-    right 62px
-    bottom 1em
-    text-align right
-    &:before
-      content '-'
-iframe
-  display block
-  margin-bottom 1rem
-.wp-caption
-  max-width 100%
-
-
-.columns
-  .row
-    display flex
-    flex-flow row wrap
-    justify-content center
-    // align-items center
-    &--5050
-      .col
-        flex 0 0 50%
-        margin 1rem auto
-    &--303030
-      .col
-        flex 0 0 30%
-        margin 0 auto
-        position relative
-        &:hover
-          opacity .75
-        p
-          text-align center
-        svg
-        img
-          height 114px
-          margin-bottom 1em
-          +pc()
-            height 200px
-        a
-          &:before
-            content ''
-            display block
-            width 100%
-            height 100%
-            position absolute
-            top 0
-            left 0
-            z-index 1
-            pointer-events auto
+svg
+  a
+    pointer-events none

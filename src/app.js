@@ -1,9 +1,13 @@
 // ## vendors
-import 'bootstrap/dist/css/bootstrap-reboot.css'
+import 'bootstrap'
+import Prism from 'prismjs'
+
 
 // ## originals
 import './scripts/index'
 import './styles/index.styl'
+
+Prism.highlightAll()
 
 // svg
 function requireAll(r) {

@@ -1,0 +1,16 @@
+mixin head(pageInfo)
+  head
+    if pageInfo.path === '/'
+      title #{pageInfo.title}
+    else
+      title #{pageInfo.title} | static-pack
+    meta(name='description', content=`${pageInfo.description}`)
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    meta(name='apple-mobile-web-app-capable' content='yes')
+    meta(
+      name='viewport',
+      content='width=device-width, initial-scale=1.0, shrink-to-fit=no'
+    )
+    link(rel='icon' href='/images/favicon.ico')
+    link(rel='apple-touch-icon' href='/images/apple-touch-icon.png')

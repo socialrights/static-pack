@@ -1,20 +1,17 @@
 {
+  "env": {
+    "browser": true,
+    "node": true,
+    "jquery": true,
+    "es6": true
+  },
   "extends": "airbnb-base",
   "rules": {
     "indent": ["error", 2],
     "semi": [2 , "never"],
-    "strict": "off",
-    "no-plusplus": off,
-    "comma-dangle": [0],
-    "arrow-body-style": off,
-    "brace-style": ["error", "stroustrup", {
-        "allowSingleLine": true
-      }
-    ],
-    "no-restricted-globals": off,
-    "prefer-destructuring": off,
-    "global-require": off,
-    "import/no-dynamic-require": 0
+    "func-names": 0,
+    "arrow-body-style": 0,
+    "comma-dangle": ["error", "only-multiline"]
   },
   "globals": {
     "window": true,

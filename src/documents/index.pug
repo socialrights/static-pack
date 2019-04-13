@@ -1,7 +1,5 @@
 extends /_layouts/single
 
-include /_modules/hero
-
 append vars
   -
     var pageInfo = {
@@ -11,78 +9,78 @@ append vars
     }
 
 block main
-  -
-    var data = {
-      img: '/images/hero.jpg',
-      title: 'static-pack',
-      txt: 'webpack4ベースの制作環境パッケージ'
-    }
-  +hero(data)
+  .jumbotron.jumbotron-fluid
+    .jumbotron__bg
+      img(
+        src!='/images/hero.jpg'
+        alt='jumbotron'
+      )
+    .container.text-white.text-shadow-dark
+      h1.display-4
+        span static-pack
+      p.lead
+        | webpack4ベースの制作環境パッケージ
   section.container
-    .container__inner
-      .container__head
-        h2
-          span 特徴
-      .container__body
-        p
-          | static-packは、webpack4をベースにした制作環境パッケージです。
-          | 最新のツールや技術を盛り込みつつ、IE11を含む各ブラウザの最新バージョンでの動作を目標にしています。
-          | 使用しているツールや技術などは下記になります。
-        ul
-          li dev server → browsersync
-          li template engine → pug
-          li post css → stylus + stylint
-          li javascript → es6 + babel + eslint (jquery less)
-          li svg-sprite
-          li bootstrapのreboot.cssをリセットに使用
-          li css grid layout
-          li etc...
-  section.container
-    .container__inner
-      .container__head
-        h2
-          span 使い方
-      .container__body
-        p
-          | 導入から開発・ビルドまでの説明です。yarn派なのでnpm派の方は適時置き換えてください。
-        h3
-          span 導入
-        p
-          a(href='') github
-          | から入手してください。
-        p
-          | 次にnpmのパッケージたちをインストールします。コマンドラインでプロジェクトフォルダを選択し、下記を入力します。
-        pre
+    h2
+      span 特徴
+    p
+      | static-packは、webpack4をベースにした制作環境パッケージです。
+    p
+      | 最新のツールや技術を盛り込みつつ、IE11を含む各ブラウザの最新バージョンでの動作を目標にしています。
+    p
+      | フロントエンド開発のベースにしたり、webpackでの各ツールの使い方の参考にお使い下さい。
+    p
+      | 使用しているツールや技術などは下記になります。
+    ul
+      li dev server → browsersync
+      li template engine → pug
+      li post css → stylus + stylint
+      li javascript → es6 + babel + eslint (+ jquery)
+      li svg-sprite
+      li bootstrap4 + css grid layout
+      li prism.js
+      li etc...
+  section.container.language-bash
+    h2
+      span 使い方
+    p
+      | 導入から開発・ビルドまでの説明です。yarn派なのでnpm派の方は適時置き換えてください。
+    section
+      h3
+        span 導入
+      p
+        a(href='') github
+        | から入手してください。
+      p
+        | 次にnpmのパッケージたちをインストールします。コマンドラインでプロジェクトフォルダを選択し、下記を入力します。
+      pre
+        code
           | yarn install
-        h3
-          span 開発モード
-        p
-          | 開発モードはローカルサーバーが起動しwatchを開始します。
-        p
-          | 開発フォルダは<code>src</code>フォルダで、<code>dist</code>フォルダへビルドします。ローカルサーバーのdocument rootは<code>dist</code>フォルダです。
-        p
-          | プロダクションモードとの違いは、ローカルサーバーが立ち上がるかどうかと、webpackがプロダクションモードで出力するかどうかです。
-        pre
+    section
+      h3
+        span 開発モード
+      p
+        | 開発モードはローカルサーバーが起動しwatchを開始します。
+      p
+        | 開発フォルダは<code>src</code>フォルダで、<code>dist</code>フォルダへビルドします。ローカルサーバーのdocument rootは<code>dist</code>フォルダです。
+      p
+        | プロダクションモードとの違いは、ローカルサーバーが立ち上がるかどうかと、webpackがプロダクションモードで出力するかどうかです。
+      pre
+        code
           | yarn dev
-        p
-          | *pugやstylusに新しいファイルを追加した場合、再度こちらのコマンドを打ち直す必要があります。
-        h3
-          span プロダクションモード
-        p
-          | プロダクションモードでは、ローカルサーバーが立ち上がらず、watchもされません。ただwebpackがプロダクションモードでビルドします。プロダクションモードでは、css, jsファイルを圧縮し軽量化します。
-        pre
+      p
+        | *pugやstylusに新しいファイルを追加した場合、再度こちらのコマンドを打ち直す必要があります。
+    section
+      h3
+        span プロダクションモード
+      p
+        | プロダクションモードでは、ローカルサーバーが立ち上がらず、watchもされません。ただwebpackがプロダクションモードでビルドします。プロダクションモードでは、css, jsファイルを圧縮し軽量化します。
+      pre
+        code
           | yarn build
   section.container
-    .container__inner
-      .container__head
-        h2
-          span サンプルページ
-      .container__body
-        p
-          | svgやpugの具体的なコードなどを載せています。
-        a(href='/samples') サンプルページへ
-          
-          
-          
-
-        
+    h2
+      span サンプルページ
+    p
+      | svgやpugの具体的なコードなどを載せています。
+    a(href='/samples') サンプルページへ

@@ -13,7 +13,13 @@
     ]
   ],
   "plugins": [
-    "@babel/plugin-transform-runtime"
+    "@babel/plugin-transform-runtime",
+    ["prismjs", {
+      "languages": ["javascript", "css", "markup", "pug", "bash"],
+      "plugins": ["line-numbers"],
+      "theme": "tomorrow",
+      "css": true
+    }]
   ],
   "ignore": ["node_modules"]
 }

@@ -3,6 +3,7 @@ extends /_layouts/double
 append vars
   -
     var data = htmlWebpackPlugin.options.data
+    var json = htmlWebpackPlugin.options.json
     var pageInfo = {
       path: htmlWebpackPlugin.options.data.key,
       title: htmlWebpackPlugin.options.data.title,
@@ -10,33 +11,33 @@ append vars
     }
 
 block main
-  article.container
-    h1
-      | #{pageInfo.title}
-    p
-      | #{pageInfo.description}
-    h2
-      span 公式サイト・github
-    p
-      a(href!=`#{data.officialsite}`) #{data.officialsite}
-    p
-      | 純粋な使い方は公式ページが詳しいのでそちらをご覧ください。ここでは、このパッケージで注意点などを書いていきます。
-    h2
-      span static-packでの特徴・使い方など
-    .useage
-      | !{data.usage}
+  article
+    .container
+      h1
+        | #{pageInfo.title}
+      p.lead.mb-5
+        | #{pageInfo.description}
+    section.container
+      h2
+        span 公式サイト・github
+      p
+        a(href!=`#{data.officialsite}`) #{data.officialsite}
+      p
+        | 純粋な使い方は公式ページが詳しいのでそちらをご覧ください。ここでは、このパッケージで注意点などを書いていきます。
+    section.container
+      h2
+        span static-packでの特徴・使い方など
+      .useage
+        | !{data.usage}
 
 block sub
   aside
-    ul.sideMenu
-      li.sideMenu__item
+    ul
+      li
         a(href='/') トップページ
-      li.sideMenu__item
+      li
         a(href='/samples') サンプルページ
         ul
-          li
-            a(href='/samples/svg-sprite.html') svg-sprite
-          li
-            a(href='/samples/pug.html') pug
-          li
-            a(href='/samples/stylus.html') stylus
+          each val in json
+            li
+              a(href=`/samples/${val.key}.html`) #{val.title}

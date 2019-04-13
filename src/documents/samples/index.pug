@@ -4,35 +4,35 @@ append vars
   -
     var pageInfo = {
       path: '/samples',
-      title: 'サンプルページ | static-pack',
-      description: 'static-packで使用しているツールを一部載せます。'
+      title: 'サンプルページ',
+      description: 'static-packで使用しているツールを一部紹介します。'
     }
 
 block main
-  article.container
-    h1
-      span サンプルページ
-    p
-      | #{pageInfo.description}
-    .columns
-      .row.row--303030
-        .col
-          img(src='/images/svglogo.png', alt='svg-sprite')
-          p
-            a(href='/samples/svg-sprite.html') svg-sprite
-        .col
-          svg
-            use(xlink:href='#pug')
-          p
-            a(href='/samples/pug.html') pug
-        .col
-          svg
-            use(xlink:href='#stylus')
-          p
-            a(href='/samples/stylus.html') stylus
-        
-    
-        
+  article
+    .container
+      h1
+        span サンプルページ
+      p.lead.mb-5
+        | #{pageInfo.description}
+    .container
+      .row
+        .col-4.text-center
+          a(href='/samples/svg-sprite.html')
+            svg.mb-3
+              use(xlink:href='#SVG_logo')
+            span svg-sprite
+        .col-4.text-center
+          a(href='/samples/pug.html')
+            svg.mb-3
+              use(xlink:href='#pug')
+            span pug
+        .col-4.text-center
+          a(href='/samples/stylus.html')
+            svg.mb-3
+              use(xlink:href='#stylus')
+            span stylus
+
 
 block sub
   aside

@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 const path = require('path')
 const globule = require('globule')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
@@ -14,7 +15,7 @@ const dist = './dist'
 
 const app = {
   entry: {
-    script: `${src}/index.js`
+    script: `${src}/app.js`
   },
   output: {
     filename: 'script.js',
@@ -65,7 +66,7 @@ const app = {
       },
       {
         test: /\.styl$/,
-        exclude: /node_modules/,
+        // exclude: /node_modules/,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -130,6 +131,12 @@ const app = {
       open: 'external',
       https: true
     }),
+    new webpack.ProvidePlugin({
+      jQuery: 'jquery',
+      $: 'jquery',
+      'window.jQuery': 'jquery',
+      Popper: ['popper.js', 'default'],
+    }),
     new MiniCssExtractPlugin(
       {
         filename: 'style.css',
@@ -172,15 +179,16 @@ const docs = globule.find(
 docs.forEach((e) => {
   if (e.match(/_template/)) {
     const dirName = e.replace('./src/documents/', '').replace('/_template.pug', '')
-    const json = e.replace('_template', '_data').replace('.pug', '.json')
-    const data = require(json)
-    Object.keys(data).forEach((f) => {
+    const replaceJson = e.replace('_template', '_data').replace('.pug', '.json')
+    const json = require(replaceJson)
+    Object.keys(json).forEach((f) => {
       const fileName = f
       app.plugins.push(
         new HtmlWebpackPlugin({
           filename: `${dirName}/${fileName}.html`,
           template: e,
-          data: data[f]
+          data: json[f],
+          json
         })
       )
     })
