@@ -49,7 +49,7 @@
     "jquery": "^3.4.0",
     "object-fit-images": "^3.2.4",
     "popper.js": "^1.14.7",
-    "prismjs": "^1.16.0",
+    "prismjs": "^1.24.0",
     "svgxuse": "^1.2.6"
   }
 }
